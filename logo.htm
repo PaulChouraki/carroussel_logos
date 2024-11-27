@@ -1,0 +1,49 @@
+<!-- 1. Ajouter le CSS de Splide -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+
+<!-- 2. Créer la structure HTML du carrousel -->
+<div id="logo-carousel" class="splide" splide-speed="1.5" splide-gap="3rem" splide-direction="ltr">
+  <div class="splide__track" style="max-height: 180px; overflow: hidden;">
+    <ul class="splide__list">
+      <li class="splide__slide"><img src="LesFauvettes_LogoFondGris-300x300__1_-removebg-preview.png" alt="Les Fauvettes Logo" style="width: 150px; height: 150px; object-fit: contain;"></li>
+      <li class="splide__slide"><img src="logo_harmonie-m-removebg-preview.png" alt="Harmonie Logo" style="width: 150px; height: 150px; object-fit: contain;"></li>
+      <li class="splide__slide"><img src="logo_oneo-removebg-preview.png" alt="Oneo Logo" style="width: 150px; height: 150px; object-fit: contain;"></li>
+      <li class="splide__slide"><img src="logoBNP-Paribas-Embleme-removebg-preview.png" alt="BNP Paribas Logo" style="width: 150px; height: 150px; object-fit: contain;"></li>
+      <li class="splide__slide"><img src="logoOnclusive_Brandmark_On-White_RGB-removebg-preview.png" alt="Onclusive Logo" style="width: 150px; height: 150px; object-fit: contain;"></li>
+      <li class="splide__slide"><img src="logoSecours_populaire_logo.svg-removebg-preview.png" alt="Secours Populaire Logo" style="width: 150px; height: 150px; object-fit: contain;"></li>
+      <li class="splide__slide"><img src="soieries_du_mékpng-removebg-preview.png" alt="Soieries du Mek Logo" style="width: 150px; height: 150px; object-fit: contain;"></li>
+      <li class="splide__slide"><img src="sooyoos-removebg-preview.png" alt="Sooyoos Logo" style="width: 150px; height: 150px; object-fit: contain;"></li>
+      <li class="splide__slide"><img src="dialogoages-removebg-preview.png" alt="Dia Logo" style="width: 150px; height: 150px; object-fit: contain;"></li>
+      <li class="splide__slide"><img src="TOPmercilogo.png" alt="Topmerci Logo" style="width: 150px; height: 150px; object-fit: contain; margin-top: -10%;"></li>
+
+      <!-- Ajoutez autant de logos que nécessaire -->
+    </ul>
+  </div>
+</div>
+
+<!-- 3. Ajouter le JS de Splide -->
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@latest/dist/js/splide-extension-auto-scroll.min.js"></script>
+
+<!-- 4. Initialiser le carrousel Splide -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let splides = document.querySelectorAll('.splide');
+    splides.forEach(splide => {
+      splide.querySelector('.splide__list').classList.remove('designer');
+      new Splide(splide, {
+        autoWidth: true,
+        pagination: false,
+        arrows: false,
+        focus: 'center',
+        direction: splide.getAttribute('splide-direction'),
+        gap: splide.getAttribute('splide-gap'),
+        type: 'loop',
+        autoScroll: {
+          autoStart: true,
+          speed: parseFloat(splide.getAttribute('splide-speed'))
+        }
+      }).mount(window.splide.Extensions);
+    });
+  });
+</script>
